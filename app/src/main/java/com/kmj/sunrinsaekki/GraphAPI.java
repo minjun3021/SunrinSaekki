@@ -25,10 +25,8 @@ public class GraphAPI {
                     public void onCompleted(
                             JSONObject object,
                             GraphResponse response) {
-                        Log.e("MyinFor",response.toString());
                         try {
-                            Log.e("Myname",object.getString("name"));
-                            Log.e("Myid",object.getString("id"));
+
                             String name=object.getString("name");
                             String facebookId=object.getString("id");
                             Log.e("Myname",name);
