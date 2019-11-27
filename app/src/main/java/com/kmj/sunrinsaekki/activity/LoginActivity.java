@@ -1,4 +1,4 @@
-package com.kmj.sunrinsaekki;
+package com.kmj.sunrinsaekki.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.kmj.sunrinsaekki.GraphAPI;
+import com.kmj.sunrinsaekki.R;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 

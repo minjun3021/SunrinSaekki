@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_profileIMG"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginVertical="16dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/com_facebook_profile_picture_blank_square"
+        app:civ_border_color="#C5B1B1"
+        app:civ_border_width="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:lineSpacingExtra="2sp"
+        android:text="사용자"
+        android:id="@+id/item_name"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/item_profileIMG"
+        app:layout_constraintLeft_toRightOf="@id/item_profileIMG"
+        app:layout_constraintTop_toTopOf="@id/item_profileIMG" />
+</androidx.constraintlayout.widget.ConstraintLayout>

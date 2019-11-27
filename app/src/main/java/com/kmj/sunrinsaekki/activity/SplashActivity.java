@@ -1,4 +1,4 @@
-package com.kmj.sunrinsaekki;
+package com.kmj.sunrinsaekki.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.AccessToken;
+import com.kmj.sunrinsaekki.GraphAPI;
+import com.kmj.sunrinsaekki.R;
 
 public class SplashActivity extends AppCompatActivity {
 
