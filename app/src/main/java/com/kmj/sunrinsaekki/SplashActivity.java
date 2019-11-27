@@ -29,8 +29,9 @@ public class SplashActivity extends AppCompatActivity {
 
         if (wifi.isConnected() || mobile.isConnected()) {
             if (isLoggedIn) {
-                GraphAPI.getMyInformation(accessToken,SplashActivity.this);
                 GraphAPI.getMyFriends(accessToken);
+                GraphAPI.getMyInformation(accessToken,SplashActivity.this);
+                MainActivity.getFromFireBase();
                 Log.e("isLoggedIn", "True" + accessToken);
                 new Handler().postDelayed(new Runnable() {
                     @Override

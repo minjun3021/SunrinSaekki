@@ -9,6 +9,8 @@ import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,6 +19,9 @@ import org.json.JSONObject;
 import static android.content.Context.MODE_PRIVATE;
 
 public class GraphAPI {
+    public static FirebaseDatabase database;
+    public static DatabaseReference myRef1;
+    public static DatabaseReference myRef2;
     public static void getMyInformation(AccessToken accessToken, final Context context){
         GraphRequest request = GraphRequest.newMeRequest(
                 accessToken,
@@ -37,6 +42,12 @@ public class GraphAPI {
                             SharedPreferences pref =context.getSharedPreferences("pref", MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
 
+                            database= FirebaseDatabase.getInstance();
+                            myRef1 = database.getReference("Users");
+                            myRef2=myRef1.child(facebookId);
+
+                            myRef2.child("name").setValue(name);
+                            myRef2.child("profileURL").setValue("http://graph.facebook.com/"+facebookId+"/picture?type=large");
                             editor.putString("name",name);
                             editor.putString("facebookId",facebookId);
                             editor.putString("profileURL","http://graph.facebook.com/"+facebookId+"/picture?type=large");
@@ -84,6 +95,7 @@ public class GraphAPI {
 
                                         String id = c.getString("id");
                                         Log.e("Friends's ID :", name + "'s ID:" + id);
+                                        MainActivity.friendsId.add(id);
 
                                     }
 

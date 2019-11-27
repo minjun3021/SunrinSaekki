@@ -65,8 +65,9 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         if(isSuccess){
             Intent intent = new Intent(this, MainActivity.class);
-            GraphAPI.getMyInformation(AccessToken.getCurrentAccessToken(),this);
             GraphAPI.getMyFriends(AccessToken.getCurrentAccessToken());
+            GraphAPI.getMyInformation(AccessToken.getCurrentAccessToken(),this);
+            MainActivity.getFromFireBase();
             startActivity(intent);
             finish();
         }
