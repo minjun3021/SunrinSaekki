@@ -1,6 +1,7 @@
 package com.kmj.sunrinsaekki;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,13 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         TextView name;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(context,ProfileActivity.class);
+                    context.startActivity(intent);
+                }
+            });
             profileIMG = itemView.findViewById(R.id.item_profileIMG);
             name = itemView.findViewById(R.id.item_name);
         }

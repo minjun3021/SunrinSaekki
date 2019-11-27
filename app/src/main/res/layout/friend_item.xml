@@ -12,8 +12,7 @@
         android:layout_marginVertical="16dp"
         android:layout_marginLeft="20dp"
         android:src="@drawable/com_facebook_profile_picture_blank_square"
-        app:civ_border_color="#C5B1B1"
-        app:civ_border_width="1dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,4 +29,14 @@
         app:layout_constraintBottom_toBottomOf="@id/item_profileIMG"
         app:layout_constraintLeft_toRightOf="@id/item_profileIMG"
         app:layout_constraintTop_toTopOf="@id/item_profileIMG" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_eye"
+        app:layout_constraintTop_toTopOf="@id/item_profileIMG"
+        android:layout_marginRight="24dp"
+        android:backgroundTint="#009111"
+        app:layout_constraintBottom_toBottomOf="@id/item_profileIMG"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
