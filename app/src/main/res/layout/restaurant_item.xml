@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_restaurent_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="16dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_restaurant"
+        android:scaleType="centerCrop"
+
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_restaurent_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+
+        android:text="음식점 이름"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toRightOf="@id/item_restaurent_image"
+        app:layout_constraintTop_toTopOf="@id/item_restaurent_image" />
+
+    <TextView
+        android:id="@+id/item_restaurent_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="카테고리"
+        android:textColor="#989898"
+        app:layout_constraintLeft_toLeftOf="@id/item_restaurent_name"
+        app:layout_constraintTop_toBottomOf="@id/item_restaurent_name" />
+
+    <TextView
+        android:id="@+id/item_restaurent_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="리뷰 0"
+        android:textColor="#989898"
+        app:layout_constraintLeft_toLeftOf="@id/item_restaurent_name"
+        app:layout_constraintTop_toBottomOf="@id/item_restaurent_category" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginRight="16dp"
+        android:background="#C2BBBB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/item_restaurent_image"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

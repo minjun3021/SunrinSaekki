@@ -1,4 +1,4 @@
-package com.kmj.sunrinsaekki;
+package com.kmj.sunrinsaekki.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.kmj.sunrinsaekki.ItemTouchHelperCallback;
+import com.kmj.sunrinsaekki.activity.ProfileActivity;
+import com.kmj.sunrinsaekki.R;
+import com.kmj.sunrinsaekki.data.UserData;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHolder> implements ItemTouchHelperCallback.ItemTouchHelperListener{
+public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHolder> implements ItemTouchHelperCallback.ItemTouchHelperListener {
     ArrayList<UserData> friends;
     Context context;
 
@@ -43,7 +47,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(context,ProfileActivity.class);
+                    Intent intent=new Intent(context, ProfileActivity.class);
                     context.startActivity(intent);
                 }
             });

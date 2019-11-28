@@ -25,6 +25,8 @@ public class SplashActivity extends AppCompatActivity {
         final AccessToken accessToken = AccessToken.getCurrentAccessToken(); //앱에 저장 된토큰 가져오기
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
+        MainActivity.getRestaurantsFromFirebase();
+
         ConnectivityManager manager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mobile = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         NetworkInfo wifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
@@ -33,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
             if (isLoggedIn) {
                 GraphAPI.getMyFriends(accessToken);
                 GraphAPI.getMyInformation(accessToken,SplashActivity.this);
-                MainActivity.getFromFireBase();
+
                 Log.e("isLoggedIn", "True" + accessToken);
                 new Handler().postDelayed(new Runnable() {
                     @Override

@@ -1,8 +1,10 @@
-package com.kmj.sunrinsaekki;
+package com.kmj.sunrinsaekki.activity;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.kmj.sunrinsaekki.R;
 
 public class ProfileActivity extends AppCompatActivity {
 

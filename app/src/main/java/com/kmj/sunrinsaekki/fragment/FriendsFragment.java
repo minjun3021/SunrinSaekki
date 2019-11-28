@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kmj.sunrinsaekki.FriendsAdapter;
+import com.kmj.sunrinsaekki.adapter.FriendsAdapter;
 import com.kmj.sunrinsaekki.ItemTouchHelperCallback;
 import com.kmj.sunrinsaekki.R;
 import com.kmj.sunrinsaekki.activity.MainActivity;

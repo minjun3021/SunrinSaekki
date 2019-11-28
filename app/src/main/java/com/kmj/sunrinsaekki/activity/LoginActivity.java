@@ -2,6 +2,7 @@ package com.kmj.sunrinsaekki.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -69,9 +70,17 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             GraphAPI.getMyFriends(AccessToken.getCurrentAccessToken());
             GraphAPI.getMyInformation(AccessToken.getCurrentAccessToken(),this);
-            MainActivity.getFromFireBase();
-            startActivity(intent);
-            finish();
+            MainActivity.getFriendFromFireBase();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    startActivity(intent);
+                    finish();
+
+                }
+            }, 2000);
+
         }
         isSuccess=true;
 

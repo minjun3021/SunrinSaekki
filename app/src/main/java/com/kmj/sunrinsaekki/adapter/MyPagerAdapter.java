@@ -1,4 +1,4 @@
-package com.kmj.sunrinsaekki;
+package com.kmj.sunrinsaekki.adapter;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;

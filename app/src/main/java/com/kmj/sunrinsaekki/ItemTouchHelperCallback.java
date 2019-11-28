@@ -36,7 +36,7 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
     }
-    interface ItemTouchHelperListener {
+    public interface ItemTouchHelperListener {
         boolean onItemMove(int fromPosition, int toPosition);
 
     }

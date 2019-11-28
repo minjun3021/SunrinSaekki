@@ -12,6 +12,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/main_tabs"
         app:tabGravity="fill"></com.google.android.material.tabs.TabLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#efefef"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/main_viewpager"

@@ -99,7 +99,7 @@ public class GraphAPI {
                                         MainActivity.friendsId.add(id);
 
                                     }
-
+                                    MainActivity.getFriendFromFireBase();
 
 
                                 } catch (JSONException e) {

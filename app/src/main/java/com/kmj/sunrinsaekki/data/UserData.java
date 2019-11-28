@@ -1,4 +1,4 @@
-package com.kmj.sunrinsaekki;
+package com.kmj.sunrinsaekki.data;
 
 public class UserData {
 
