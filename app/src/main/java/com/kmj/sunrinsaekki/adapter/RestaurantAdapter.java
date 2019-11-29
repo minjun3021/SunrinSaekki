@@ -68,14 +68,16 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         holder.name.setText(restaurants.get(position).getName());
         holder.category.setText(restaurants.get(position).getCategory());
         holder.review.setText(restaurants.get(position).getReview());
+
+//        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+//        StorageReference storageReference = firebaseStorage.getReference();
+//        storageReference.child("")
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        StorageReference storageReference = firebaseStorage.getReference().child(restaurants.get(position).getName());
-        storageReference.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+        StorageReference storageReference = firebaseStorage.getReference();
+        storageReference.child("images/"+restaurants.get(position).getName()).getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
                 Log.e("img",task.getResult().toString());
-
-
                 if (task.isComplete()){
                     Glide.with(context)
                             .load(task.getResult())

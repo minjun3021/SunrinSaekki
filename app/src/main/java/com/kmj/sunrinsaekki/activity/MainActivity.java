@@ -1,6 +1,5 @@
 package com.kmj.sunrinsaekki.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -8,23 +7,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.bumptech.glide.Registry;
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
 import com.kmj.sunrinsaekki.R;
 import com.kmj.sunrinsaekki.adapter.MyPagerAdapter;
 import com.kmj.sunrinsaekki.data.RestaurantData;
 import com.kmj.sunrinsaekki.data.UserData;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -111,13 +104,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    @GlideModule
-    public class MyAppGlideModule extends AppGlideModule {
-        @Override
-        public void registerComponents(Context context, Registry registry) {
-            // Register FirebaseImageLoader to handle StorageReference
-            registry.append(StorageReference.class, InputStream.class,
-                    new FirebaseImageLoader.Factory());
-        }
-    }
+//    @GlideModule
+//    public class MyAppGlideModule extends AppGlideModule {
+//        @Override
+//        public void registerComponents(@NonNull Context context, @NonNull Glide glide, @NonNull Registry registry) {
+//            super.registerComponents(context, glide, registry);
+//            registry.append(StorageReference.class, InputStream.class,
+//                    new FirebaseImageLoader.Factory());
+//        }
+//    }
 }
