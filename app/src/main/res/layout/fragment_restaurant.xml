@@ -13,6 +13,18 @@
         android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurant_profile"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#ff5252"
+        android:src="@drawable/ic_person"
+        app:layout_constraintBottom_toTopOf="@id/restaurant_add"
+        app:layout_constraintRight_toRightOf="parent"
+
+        />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/restaurant_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

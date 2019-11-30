@@ -15,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.kmj.sunrinsaekki.R;
 import com.kmj.sunrinsaekki.activity.AddActivity;
 import com.kmj.sunrinsaekki.activity.MainActivity;
+import com.kmj.sunrinsaekki.activity.ProfileActivity;
 import com.kmj.sunrinsaekki.adapter.RestaurantAdapter;
 
 
@@ -23,8 +24,9 @@ import com.kmj.sunrinsaekki.adapter.RestaurantAdapter;
  */
 public class RestaurantFragment extends Fragment {
     MainActivity mainActivity;
-    FloatingActionButton addButton;
+    FloatingActionButton addButton,profileButton;
     RecyclerView recyclerView;
+    public static boolean isMyProfile=false;
     public static RestaurantAdapter adapter;
     public RestaurantFragment() {
         // Required empty public constructor
@@ -43,6 +45,15 @@ public class RestaurantFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(mainActivity));
         recyclerView.setAdapter(adapter);
         MainActivity.isResFragCreated=true;
+        profileButton = v.findViewById(R.id.restaurant_profile);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mainActivity, ProfileActivity.class);
+                RestaurantFragment.isMyProfile=true;
+                mainActivity.startActivity(intent);
+            }
+        });
         addButton=v.findViewById(R.id.restaurant_add);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

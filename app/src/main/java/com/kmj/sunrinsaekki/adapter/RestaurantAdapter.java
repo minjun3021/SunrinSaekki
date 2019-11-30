@@ -75,7 +75,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         storageReference.child("images/"+restaurants.get(position).getName()).getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
-                if (task.isComplete()){
+                if (task.isSuccessful()){
                     Glide.with(context)
                             .load(task.getResult())
                             .placeholder(R.drawable.ic_person)

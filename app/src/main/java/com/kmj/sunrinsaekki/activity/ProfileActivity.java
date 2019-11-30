@@ -24,6 +24,7 @@ import com.kmj.sunrinsaekki.R;
 import com.kmj.sunrinsaekki.adapter.ProfileAdapter;
 import com.kmj.sunrinsaekki.data.UserData;
 import com.kmj.sunrinsaekki.fragment.FriendsFragment;
+import com.kmj.sunrinsaekki.fragment.RestaurantFragment;
 
 import java.util.ArrayList;
 
@@ -41,12 +42,19 @@ public class ProfileActivity extends AppCompatActivity {
     ArrayList<String> stars;
     ArrayList<String> visits;
 
+    UserData user;
     ProfileAdapter starAdapter,visitAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        UserData user=MainActivity.friends.get(FriendsFragment.adapterPosition);
+        if(RestaurantFragment.isMyProfile){
+            RestaurantFragment.isMyProfile=false;
+            user = new UserData(MainActivity.myName, MainActivity.myProfileURL, MainActivity.myFacebookId);
+        }
+        else{
+            user=MainActivity.friends.get(FriendsFragment.adapterPosition);
+        }
 
         stars = new ArrayList<>();
         visits = new ArrayList<>();
