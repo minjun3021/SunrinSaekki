@@ -25,7 +25,6 @@ public class RestaurantFragment extends Fragment {
     MainActivity mainActivity;
     FloatingActionButton addButton;
     RecyclerView recyclerView;
-
     public static RestaurantAdapter adapter;
     public RestaurantFragment() {
         // Required empty public constructor

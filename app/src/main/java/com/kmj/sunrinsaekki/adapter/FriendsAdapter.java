@@ -15,6 +15,7 @@ import com.kmj.sunrinsaekki.ItemTouchHelperCallback;
 import com.kmj.sunrinsaekki.activity.ProfileActivity;
 import com.kmj.sunrinsaekki.R;
 import com.kmj.sunrinsaekki.data.UserData;
+import com.kmj.sunrinsaekki.fragment.FriendsFragment;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    FriendsFragment.adapterPosition = getAdapterPosition();
                     Intent intent=new Intent(context, ProfileActivity.class);
                     context.startActivity(intent);
                 }

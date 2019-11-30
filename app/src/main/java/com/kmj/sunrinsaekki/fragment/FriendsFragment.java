@@ -25,6 +25,8 @@ import com.kmj.sunrinsaekki.activity.MainActivity;
  */
 public class FriendsFragment extends Fragment {
     FriendsAdapter mAdapter;
+    public static int adapterPosition=0;
+
     RecyclerView recyclerView;
     public FriendsFragment() {
         // Required empty public constructor
