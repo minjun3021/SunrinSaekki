@@ -52,6 +52,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         holder.name.setText(comments.get(position).getName());
         Glide.with(context)
                 .load(comments.get(position).getProURL())
+                .placeholder(R.drawable.ic_person)
                 .centerCrop()
                 .into(holder.commentPro);
     }

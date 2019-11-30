@@ -3,7 +3,6 @@ package com.kmj.sunrinsaekki.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,10 +75,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         storageReference.child("images/"+restaurants.get(position).getName()).getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
-                Log.e("img",task.getResult().toString());
                 if (task.isComplete()){
                     Glide.with(context)
                             .load(task.getResult())
+                            .placeholder(R.drawable.ic_person)
                             .centerCrop()
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(holder.restaurantIMG);

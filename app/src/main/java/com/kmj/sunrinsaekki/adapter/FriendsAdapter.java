@@ -68,6 +68,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         holder.name.setText(friends.get(position).getName());
         Glide.with(context)
                 .load(friends.get(position).getProfileURL())
+                .placeholder(R.drawable.ic_person)
                 .into(holder.profileIMG);
     }
 

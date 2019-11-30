@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                friends.clear();
                 for (DataSnapshot zoneSnapshot : dataSnapshot.getChildren()) {
                     boolean isExisted = false;
                     for (String i : friendsId) {

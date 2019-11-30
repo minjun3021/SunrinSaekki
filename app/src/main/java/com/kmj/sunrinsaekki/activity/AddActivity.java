@@ -41,7 +41,7 @@ public class AddActivity extends AppCompatActivity {
     Toolbar mToolbar;
     Spinner spinner;
     ArrayList<String> categorys;
-    ImageView check,addImage;
+    ImageView check, addImage;
     ArrayAdapter<String> adapter;
     ArrayList<String> permissions;
     EditText name;
@@ -52,13 +52,14 @@ public class AddActivity extends AppCompatActivity {
     public static DatabaseReference myRef1;
     public static DatabaseReference myRef2;
     Uri filePath;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        isSelected=false;
-        name=findViewById(R.id.name_edit);
+        isSelected = false;
+        name = findViewById(R.id.name_edit);
         mToolbar = findViewById(R.id.add_toolbar);
         spinner = findViewById(R.id.spinner);
         addImage = findViewById(R.id.add_image);
@@ -77,15 +78,14 @@ public class AddActivity extends AppCompatActivity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!name.getText().toString().replace(" ", "").equals("")){
+                if (!name.getText().toString().replace(" ", "").equals("")) {
                     uploadFile(filePath);
-                    database= FirebaseDatabase.getInstance();
+                    database = FirebaseDatabase.getInstance();
                     myRef1 = database.getReference("Restaurants");
-                    myRef2=myRef1.child(name.getText().toString());
+                    myRef2 = myRef1.child(name.getText().toString());
                     myRef2.child("category").setValue(category);
 
-                }
-                else{
+                } else {
                     Toast.makeText(AddActivity.this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
 
@@ -98,8 +98,8 @@ public class AddActivity extends AppCompatActivity {
                         .show(new TedBottomSheetDialogFragment.OnImageSelectedListener() {
                             @Override
                             public void onImageSelected(Uri uri) {
-                                isSelected=true;
-                                filePath=uri;
+                                isSelected = true;
+                                filePath = uri;
                                 addText.setVisibility(View.GONE);
                                 Glide.with(AddActivity.this)
                                         .load(uri)
@@ -165,6 +165,7 @@ public class AddActivity extends AppCompatActivity {
 
 
     }
+
     private void uploadFile(Uri filePath) {
         if (filePath != null) {
 
@@ -198,13 +199,13 @@ public class AddActivity extends AppCompatActivity {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
 
-                                    double progress = (100 * taskSnapshot.getBytesTransferred()) /  taskSnapshot.getTotalByteCount();
+                            double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
                             //dialog에 진행률을 퍼센트로 출력해 준다
                             progressDialog.setMessage("Uploaded " + ((int) progress) + "% ...");
                         }
                     });
         } else {
-            Toast.makeText(getApplicationContext(), "파일을 먼저 선택하세요.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "사진을 선택해주세요.", Toast.LENGTH_SHORT).show();
         }
     }
 
