@@ -1,99 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="275dp" />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/Res_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="가게 이름"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-        <TextView
-            android:id="@+id/category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#카테고리"
-            android:layout_marginLeft="20dp"
-            android:textColor="#ff5252"
-            android:textSize="15dp" />
-
-        <Button
-            android:id="@+id/button"
-            android:text="안가봤어요"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/friend"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/btn_style"/>
-
-        <ImageButton
-            android:id="@+id/friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_person_black_24dp"/>
-
-        <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="70dp"
-            android:background="#ff5252"/>
+            android:layout_height="match_parent"
 
-    </RelativeLayout>
+            >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="이런 음식을 팔아요!"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"/>
+            <ImageView
+                android:id="@+id/res_inform_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/ic_launcher_background"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/menu1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴1"
-        android:textSize="18dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"/>
+            <RelativeLayout
+                android:id="@+id/res_relative"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/res_inform_image">
 
-    <TextView
-        android:id="@+id/menu2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴2"
-        android:textSize="18dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/Res_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="가게 이름"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/menu3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴3"
-        android:textSize="18dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="#카테고리"
+                    android:textColor="#ff5252"
+                    android:textSize="15dp" />
 
-</LinearLayout>
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toLeftOf="@id/friend"
+                    android:background="@drawable/btn_style"
+                    android:text="안가봤어요" />
+
+                <ImageButton
+                    android:id="@+id/friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_person_black_24dp" />
+
+
+            </RelativeLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/res_constraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/res_relative">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#ADA1A1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/res_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰 0개"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/res_comment_pro"
+                    app:layout_constraintLeft_toLeftOf="@id/res_comment_pro"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+
+                    android:id="@+id/res_comment_pro"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/res_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:singleLine="true"
+                    android:layout_marginRight="8dp"
+                    android:hint="리뷰를 작성해보세요 :)"
+                    android:backgroundTint="#ADA1A1"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:textColor="#000"
+                    app:layout_constraintBottom_toBottomOf="@id/res_comment_pro"
+                    app:layout_constraintLeft_toRightOf="@id/res_comment_pro"
+                    app:layout_constraintRight_toLeftOf="@id/res_comment_push" />
+
+                <TextView
+                    android:id="@+id/res_comment_push"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="16dp"
+                    android:text="등록"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/res_comment_pro"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/res_comment_pro" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/res_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:listitem="@layout/comment_item"></androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

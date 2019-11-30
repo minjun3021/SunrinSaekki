@@ -2,8 +2,14 @@ package com.kmj.sunrinsaekki.data;
 
 public class RestaurantData {
     private String name;
-    private String review;
+    private int review;
     private String category;
+
+    public RestaurantData(String name, int review, String category) {
+        this.name = name;
+        this.review = review;
+        this.category = category;
+    }
 
     public String getName() {
         return name;
@@ -13,11 +19,11 @@ public class RestaurantData {
         this.name = name;
     }
 
-    public String getReview() {
+    public int getReview() {
         return review;
     }
 
-    public void setReview(String review) {
+    public void setReview(int review) {
         this.review = review;
     }
 
@@ -26,12 +32,6 @@ public class RestaurantData {
     }
 
     public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public RestaurantData(String name, String review, String category) {
-        this.name = name;
-        this.review = review;
         this.category = category;
     }
 }

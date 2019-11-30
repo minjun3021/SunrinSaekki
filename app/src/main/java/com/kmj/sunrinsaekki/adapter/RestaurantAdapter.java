@@ -21,6 +21,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.kmj.sunrinsaekki.R;
 import com.kmj.sunrinsaekki.activity.InformRestaurantActivity;
+import com.kmj.sunrinsaekki.activity.MainActivity;
 import com.kmj.sunrinsaekki.data.RestaurantData;
 
 import java.util.ArrayList;
@@ -44,11 +45,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             name = itemView.findViewById(R.id.item_restaurent_name);
             review = itemView.findViewById(R.id.item_restaurent_review);
             category = itemView.findViewById(R.id.item_restaurent_category);
-
+            review = itemView.findViewById(R.id.item_restaurent_review);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, InformRestaurantActivity.class);
+                    MainActivity.adapterPosition=getAdapterPosition();
                     context.startActivity(intent);
                 }
             });
@@ -67,11 +69,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder, int position) {
         holder.name.setText(restaurants.get(position).getName());
         holder.category.setText(restaurants.get(position).getCategory());
-        holder.review.setText(restaurants.get(position).getReview());
+        holder.review.setText("리뷰 "+restaurants.get(position).getReview());
 
-//        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-//        StorageReference storageReference = firebaseStorage.getReference();
-//        storageReference.child("")
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference storageReference = firebaseStorage.getReference();
         storageReference.child("images/"+restaurants.get(position).getName()).getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {

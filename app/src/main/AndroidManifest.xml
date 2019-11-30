@@ -13,7 +13,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.InformRestaurantActivity"></activity>
+        <activity
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:name=".activity.InformRestaurantActivity">
+
+        </activity>
 
         <activity android:name=".activity.AddActivity" />
         <activity android:name=".activity.ProfileActivity" />

@@ -26,7 +26,7 @@ public class RestaurantFragment extends Fragment {
     FloatingActionButton addButton;
     RecyclerView recyclerView;
 
-    RestaurantAdapter adapter;
+    public static RestaurantAdapter adapter;
     public RestaurantFragment() {
         // Required empty public constructor
     }
@@ -43,6 +43,7 @@ public class RestaurantFragment extends Fragment {
         adapter = new RestaurantAdapter(MainActivity.restaurants, mainActivity);
         recyclerView.setLayoutManager(new LinearLayoutManager(mainActivity));
         recyclerView.setAdapter(adapter);
+        MainActivity.isResFragCreated=true;
         addButton=v.findViewById(R.id.restaurant_add);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

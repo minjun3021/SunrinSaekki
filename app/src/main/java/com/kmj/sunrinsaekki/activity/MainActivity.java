@@ -17,6 +17,7 @@ import com.kmj.sunrinsaekki.R;
 import com.kmj.sunrinsaekki.adapter.MyPagerAdapter;
 import com.kmj.sunrinsaekki.data.RestaurantData;
 import com.kmj.sunrinsaekki.data.UserData;
+import com.kmj.sunrinsaekki.fragment.RestaurantFragment;
 
 import java.util.ArrayList;
 
@@ -29,8 +30,11 @@ public class MainActivity extends AppCompatActivity {
     public static DatabaseReference myRef1;
     public static ArrayList<String> friendsId = new ArrayList<>();
     public static ArrayList<UserData> friends = new ArrayList<>();
+    public static ArrayList<UserData> users = new ArrayList<>();
     public static ArrayList<RestaurantData> restaurants = new ArrayList<>();
-
+    public static int adapterPosition=0;
+    public static int reviewCnt;
+    public static boolean isResFragCreated=false;
     TabLayout tabLayout;
     ViewPager viewPager;
     MyPagerAdapter mAdapter;
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         }
                     }
+                    users.add(new UserData(zoneSnapshot.child("name").getValue(String.class), zoneSnapshot.child("profileURL").getValue(String.class), zoneSnapshot.getKey()));
                     if (isExisted) {
                         friends.add(new UserData(zoneSnapshot.child("name").getValue(String.class), zoneSnapshot.child("profileURL").getValue(String.class), zoneSnapshot.getKey()));
                     }
@@ -88,10 +93,28 @@ public class MainActivity extends AppCompatActivity {
         myRef1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                restaurants.clear();
+
                 for (DataSnapshot zoneSnapshot : dataSnapshot.getChildren()) {
+                    reviewCnt=0;
                     //zoneSnapshot.getKey() 음식점이름
                     //zoneSnapshot.child("category").getValue(String.class) 음식점 카테고리
-                    restaurants.add(new RestaurantData(zoneSnapshot.getKey(),"리뷰 0",zoneSnapshot.child("category").getValue(String.class)));
+                    myRef1.child(zoneSnapshot.getKey()).child("comments").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            reviewCnt= (int) dataSnapshot.getChildrenCount();
+                            Log.e(zoneSnapshot.getKey(), reviewCnt + "");
+                            restaurants.add(new RestaurantData(zoneSnapshot.getKey(),reviewCnt,zoneSnapshot.child("category").getValue(String.class)));
+                            if(isResFragCreated){
+                                RestaurantFragment.adapter.notifyDataSetChanged();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
 
 
 
@@ -104,13 +127,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-//    @GlideModule
-//    public class MyAppGlideModule extends AppGlideModule {
-//        @Override
-//        public void registerComponents(@NonNull Context context, @NonNull Glide glide, @NonNull Registry registry) {
-//            super.registerComponents(context, glide, registry);
-//            registry.append(StorageReference.class, InputStream.class,
-//                    new FirebaseImageLoader.Factory());
-//        }
-//    }
+
 }
